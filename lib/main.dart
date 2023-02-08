@@ -1,8 +1,13 @@
-import 'package:belajar_flutter/pages/custom_card/main_page.dart';
+import 'package:belajar_flutter/pages/login_page/main_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -11,7 +16,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MainPageCard(),
+      debugShowCheckedModeBanner: false,
+      home: MainLoginPage(),
     );
   }
 }
